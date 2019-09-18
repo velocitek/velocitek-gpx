@@ -1,1 +1,38 @@
-xx
+<xsd:schema xmlns="https://www.velocitek.com/VelocitekGPX/v1" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.velocitek.com/VelocitekGPX/v1" elementFormDefault="qualified">
+  <xsd:annotation>
+    <xsd:documentation>
+This schema defines the Velocitek extensions to be used with the GPX 1.1 schema. 
+The root elements defined by this schema are intended to be used as child elements of the "extensions" elements in the GPX 1.1 schema. 
+The GPX 1.1 schema is available at http://www.topografix.com/GPX/1/1/gpx.xsd.
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="TrackPointExtension" type="TrackPointExtension_t"/>
+  <xsd:complexType name="TrackPointExtension_t">
+    <xsd:annotation>
+      <xsd:documentation>
+This type contains additional data that can be added by Velocitek products on track points.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="sog" type="Speed_t" minOccurs="0"/>
+      <xsd:element name="cog" type="DirectionTrue_t" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="Speed_t">
+    <xsd:annotation>
+      <xsd:documentation>
+This type contains a speed measured in meters per second.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:double"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="DirectionTrue_t">
+    <xsd:annotation>
+      <xsd:documentation>
+This type contains a direction measured in degrees relative to true north.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:double"/>
+  </xsd:simpleType>
+</xsd:schema>
