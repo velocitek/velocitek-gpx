@@ -15,14 +15,14 @@ This type contains additional data that can be added by Velocitek products on tr
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="sog" type="Speed_t" minOccurs="0"/>
+      <xsd:element name="sog" type="NauticalSpeed_t" minOccurs="0"/>
       <xsd:element name="cog" type="DirectionTrue_t" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:simpleType name="Speed_t">
+  <xsd:simpleType name="NauticalSpeed_t">
     <xsd:annotation>
       <xsd:documentation>
-This type contains a speed measured in meters per second.
+This type contains a speed measured in knots.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:restriction base="xsd:double"/>
